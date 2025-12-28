@@ -2,7 +2,9 @@ const tg = window.Telegram.WebApp;
 tg.expand();
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
   document.getElementById(id).classList.add('active');
 }
 
@@ -23,11 +25,16 @@ function goHome() {
 }
 
 function showService(price) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+  document.querySelectorAll('.service').forEach(service => service.classList.remove('active'));
 
-  document.querySelector(`.tab[onclick="showService(${price})"]`).classList.add('active');
-  document.getElementById(`service-${price}`).classList.add('active');
+  if (price === 2100) {
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('service-2100').classList.add('active');
+  } else {
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.getElementById('service-2500').classList.add('active');
+  }
 }
 
 function sendForm() {
