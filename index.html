@@ -1,72 +1,63 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>Дизайн интерьеров</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
-<div class="container">
-
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<section id="home" class="screen active">
   <h1>Дизайн интерьеров</h1>
+  <p>Квартиры · Дома · Коммерция</p>
+  <p class="price">2300 ₽ / м²</p>
 
-  <p class="subtitle">
-    Квартиры • Дома • Коммерческие пространства<br>
-    Челябинск • Екатеринбург • Онлайн по России
-  </p>
+  <button onclick="openPortfolio()">Портфолио</button>
+  <button class="primary" onclick="openForm()">Оставить заявку</button>
+</section>
 
-  <p class="price">
-    Стоимость дизайн-проекта — <strong>2300 ₽ / м²</strong>
-  </p>
+<!-- ПОРТФОЛИО -->
+<section id="portfolio" class="screen">
+  <h2>Портфолио</h2>
 
-  <h2>Заявка на проект</h2>
+  <div class="projects">
+    <a href="#" class="project">
+      <img src="images/project1.jpg" alt="">
+      <h3>Проект №1</h3>
+      <p>Квартира</p>
+    </a>
 
-  <input id="phone" type="tel" placeholder="Телефон" />
-  
-  <select id="type">
-    <option value="Квартира">Квартира</option>
-    <option value="Дом">Дом</option>
-    <option value="Коммерческое помещение">Коммерческое помещение</option>
-  </select>
+    <a href="#" class="project">
+      <img src="images/project2.jpg" alt="">
+      <h3>Проект №2</h3>
+      <p>Квартира</p>
+    </a>
+  </div>
 
-  <input id="area" type="number" placeholder="Площадь, м²" />
+  <button class="back" onclick="goHome()">Назад</button>
+</section>
 
-  <textarea id="comment" placeholder="Комментарий (необязательно)"></textarea>
+<!-- ФОРМА -->
+<section id="form" class="screen">
+  <h2>Оставить заявку</h2>
 
-  <button id="sendBtn">Оставить заявку</button>
+  <input id="phone" type="tel" placeholder="Телефон">
+  <input id="type" type="text" placeholder="Тип объекта">
+  <input id="area" type="number" placeholder="Площадь, м²">
+  <textarea id="comment" placeholder="Комментарий"></textarea>
 
-</div>
+  <button class="primary" onclick="sendForm()">Отправить</button>
+  <button class="back" onclick="goHome()">Назад</button>
+</section>
 
 <script src="script.js"></script>
 </body>
 </html>
-<section class="portfolio">
-  <h2>Портфолио</h2>
-
-  <div class="projects">
-    <div class="project">
-      <img src="images/project1-1.jpg" alt="">
-      <h3>Квартира, 62 м²</h3>
-      <p>Челябинск</p>
-    </div>
-
-    <div class="project">
-      <img src="images/project2-1.jpg" alt="">
-      <h3>Квартира, 48 м²</h3>
-      <p>Екатеринбург</p>
-    </div>
-
-    <div class="project">
-      <img src="images/project3-1.jpg" alt="">
-      <h3>Коммерческое помещение, 110 м²</h3>
-      <p>Челябинск</p>
-    </div>
-  </div>
 </section>
+
 
 
 
