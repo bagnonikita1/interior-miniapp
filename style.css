@@ -9,20 +9,18 @@ body {
   color: #111;
 }
 
+#app {
+  min-height: 100vh;
+}
+
 .screen {
-  position: absolute;
-  inset: 0;
+  display: none;
   padding: 20px;
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity .3s ease, transform .3s ease;
-  pointer-events: none;
+  animation: fade .25s ease;
 }
 
 .screen.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+  display: block;
 }
 
 h1 {
@@ -77,7 +75,6 @@ button.back {
 
 .tab {
   flex: 1;
-  background: #eee;
 }
 
 .tab.active {
@@ -87,7 +84,6 @@ button.back {
 
 .service {
   display: none;
-  animation: fade .3s ease;
 }
 
 .service.active {
@@ -107,6 +103,12 @@ input, textarea {
 }
 
 @keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
