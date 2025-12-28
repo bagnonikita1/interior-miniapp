@@ -2,14 +2,16 @@ const tg = window.Telegram.WebApp;
 tg.expand();
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(screen => {
-    screen.classList.remove('active');
-  });
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
 function openPortfolio() {
   showScreen('portfolio');
+}
+
+function openServices() {
+  showScreen('services');
 }
 
 function openForm() {
@@ -20,10 +22,17 @@ function goHome() {
   showScreen('home');
 }
 
+function showService(price) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+
+  document.querySelector(`.tab[onclick="showService(${price})"]`).classList.add('active');
+  document.getElementById(`service-${price}`).classList.add('active');
+}
+
 function sendForm() {
   const data = {
     phone: document.getElementById('phone').value,
-    type: document.getElementById('type').value,
     area: document.getElementById('area').value,
     comment: document.getElementById('comment').value
   };
