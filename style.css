@@ -5,26 +5,28 @@
 
 body {
   margin: 0;
-  background: #ffffff;
+  background: #fff;
   color: #111;
 }
 
 .screen {
-  display: none;
+  position: absolute;
+  inset: 0;
   padding: 20px;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity .3s ease, transform .3s ease;
+  pointer-events: none;
 }
 
 .screen.active {
-  display: block;
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 h1 {
   margin-top: 40px;
-}
-
-.price {
-  font-size: 18px;
-  margin: 20px 0;
 }
 
 button {
@@ -44,7 +46,7 @@ button.primary {
 
 button.back {
   background: transparent;
-  color: #555;
+  color: #666;
 }
 
 .projects {
@@ -54,12 +56,11 @@ button.back {
 }
 
 .project {
-  display: block;
-  text-decoration: none;
-  color: inherit;
   background: #f5f5f5;
   border-radius: 12px;
   overflow: hidden;
+  text-decoration: none;
+  color: inherit;
 }
 
 .project img {
@@ -68,15 +69,33 @@ button.back {
   object-fit: cover;
 }
 
-.project h3 {
-  font-size: 14px;
-  margin: 10px;
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
 }
 
-.project p {
-  font-size: 12px;
-  color: #666;
-  margin: 0 10px 10px;
+.tab {
+  flex: 1;
+  background: #eee;
+}
+
+.tab.active {
+  background: #000;
+  color: #fff;
+}
+
+.service {
+  display: none;
+  animation: fade .3s ease;
+}
+
+.service.active {
+  display: block;
+}
+
+ul {
+  padding-left: 20px;
 }
 
 input, textarea {
@@ -85,5 +104,9 @@ input, textarea {
   margin-top: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 14px;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
