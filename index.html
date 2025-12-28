@@ -13,9 +13,9 @@
 <section id="home" class="screen active">
   <h1>Дизайн интерьеров</h1>
   <p>Квартиры · Дома · Коммерция</p>
-  <p class="price">2300 ₽ / м²</p>
 
   <button onclick="openPortfolio()">Портфолио</button>
+  <button onclick="openServices()">Услуги и цены</button>
   <button class="primary" onclick="openForm()">Оставить заявку</button>
 </section>
 
@@ -25,14 +25,8 @@
 
   <div class="projects">
     <a href="#" class="project">
-      <img src="images/project1.jpg" alt="">
+      <img src="images/project1.jpg">
       <h3>Проект №1</h3>
-      <p>Квартира</p>
-    </a>
-
-    <a href="#" class="project">
-      <img src="images/project2.jpg" alt="">
-      <h3>Проект №2</h3>
       <p>Квартира</p>
     </a>
   </div>
@@ -40,13 +34,46 @@
   <button class="back" onclick="goHome()">Назад</button>
 </section>
 
+<!-- УСЛУГИ -->
+<section id="services" class="screen">
+  <h2>Услуги</h2>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showService(2100)">2100 ₽ / м²</button>
+    <button class="tab" onclick="showService(2500)">2500 ₽ / м²</button>
+  </div>
+
+  <div id="service-2100" class="service active">
+    <h3>Минимальный набор</h3>
+    <ul>
+      <li>Планировочное решение</li>
+      <li>Концепция интерьера</li>
+      <li>Подбор материалов и цветов</li>
+      <li>Базовые чертежи</li>
+    </ul>
+  </div>
+
+  <div id="service-2500" class="service">
+    <h3>Стандартный набор</h3>
+    <ul>
+      <li>Планировочное решение</li>
+      <li>Концепция интерьера</li>
+      <li>3D-визуализация</li>
+      <li>Полный комплект чертежей</li>
+      <li>Подбор материалов и мебели</li>
+    </ul>
+  </div>
+
+  <button class="primary" onclick="openForm()">Оставить заявку</button>
+  <button class="back" onclick="goHome()">Назад</button>
+</section>
+
 <!-- ФОРМА -->
 <section id="form" class="screen">
   <h2>Оставить заявку</h2>
 
-  <input id="phone" type="tel" placeholder="Телефон">
-  <input id="type" type="text" placeholder="Тип объекта">
-  <input id="area" type="number" placeholder="Площадь, м²">
+  <input id="phone" placeholder="Телефон">
+  <input id="area" placeholder="Площадь, м²">
   <textarea id="comment" placeholder="Комментарий"></textarea>
 
   <button class="primary" onclick="sendForm()">Отправить</button>
@@ -56,8 +83,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-</section>
-
-
-
-
