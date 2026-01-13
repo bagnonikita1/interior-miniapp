@@ -11,7 +11,7 @@
 
 <div id="app">
 
-  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <!-- ГЛАВНЫЙ -->
   <section id="home" class="screen active">
     <h1>Дизайн интерьеров</h1>
     <p>Квартиры · Дома · Коммерция</p>
@@ -26,14 +26,43 @@
     <h2>Портфолио</h2>
 
     <div class="projects">
-      <a href="#" class="project">
-        <img src="images/project1.jpg" alt="">
-        <h3>Проект №1</h3>
-        <p>Квартира</p>
-      </a>
+      <div class="project" onclick="openProject(1)">
+        <img src="images/p1-1.jpg">
+        <h3>Квартира для мужчины</h3>
+        <p>Идёт реализация</p>
+      </div>
+
+      <div class="project" onclick="openProject(2)">
+        <img src="images/p2-1.jpg">
+        <h3>Квартира для студентки ЮУрГУ</h3>
+        <p>Реализован ✅</p>
+      </div>
+
+      <div class="project" onclick="openProject(3)">
+        <img src="images/p3-1.jpg">
+        <h3>Коммерческое пространство</h3>
+        <p>Идёт реализация</p>
+      </div>
     </div>
 
     <button class="back" onclick="goHome()">Назад</button>
+  </section>
+
+  <!-- ЭКРАН ПРОЕКТА -->
+  <section id="project" class="screen">
+    <h2 id="project-title"></h2>
+    <p id="project-desc"></p>
+
+    <div class="slider">
+      <img id="slider-img" src="">
+    </div>
+
+    <div class="slider-controls">
+      <button onclick="prevImage()">←</button>
+      <button onclick="nextImage()">→</button>
+    </div>
+
+    <button class="back" onclick="openPortfolio()">Назад к портфолио</button>
   </section>
 
   <!-- УСЛУГИ -->
@@ -48,9 +77,9 @@
     <div id="service-2100" class="service active">
       <h3>Минимальный набор</h3>
       <ul>
-        <li>Планировочное решение</li>
-        <li>Концепция интерьера</li>
-        <li>Подбор материалов и цветов</li>
+        <li>Планировка</li>
+        <li>Концепция</li>
+        <li>Подбор материалов</li>
         <li>Базовые чертежи</li>
       </ul>
     </div>
@@ -58,11 +87,11 @@
     <div id="service-2500" class="service">
       <h3>Стандартный набор</h3>
       <ul>
-        <li>Планировочное решение</li>
-        <li>Концепция интерьера</li>
+        <li>Планировка</li>
+        <li>Концепция</li>
         <li>3D-визуализация</li>
         <li>Полный комплект чертежей</li>
-        <li>Подбор материалов и мебели</li>
+        <li>Подбор мебели</li>
       </ul>
     </div>
 
