@@ -1,3 +1,19 @@
+body {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1 { font-size: 24px; }
+h2 { font-size: 20px; }
+h3 { font-size: 16px; }
+
+p, li, input, textarea {
+  font-size: 14px;
+}
+
+button {
+  font-size: 15px;
+}
 * {
   box-sizing: border-box;
   font-family: Arial, sans-serif;
@@ -79,12 +95,37 @@ button.back {
 
 .top-bar {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  right: 10px;
+  top: 12px;
+  left: 12px;
+  right: 12px;
   display: flex;
-  justify-content: space-between;
-  z-index: 10;
+  align-items: center;
+  gap: 12px;
+  z-index: 20;
+}
+
+/* название проекта */
+#project-title {
+  flex: 1;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* маленький аккуратный крестик */
+.top-bar button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  font-size: 18px;
+  line-height: 32px;
+  text-align: center;
 }
 
 .slider-controls {
@@ -120,4 +161,5 @@ button.back {
 .service.active {
   display: block;
 }
+
 
