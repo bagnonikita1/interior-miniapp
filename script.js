@@ -8,17 +8,17 @@ const projects = {
   1: {
     title: "Квартира для мужчины средних лет",
     desc: "Сейчас идёт реализация",
-    images: ["images/p1-1.jpg", "images/p1-2.jpg"]
+    images: ["images/p1-1.jpg", "images/p1-2.jpg", "images/p1-3.jpg"]
   },
   2: {
     title: "Квартира L-town",
     desc: "Проект реализован ✅",
-    images: ["images/p2-1.jpg", "images/p2-2.jpg"]
+    images: ["images/p2-1.jpg", "images/p2-2.jpg", "images/p2-3.jpg", "images/p2-4.jpg"]
   },
   3: {
     title: "Коммерческое пространство для кофейни",
     desc: "Сейчас идёт реализация",
-    images: ["images/p3-1.jpg", "images/p3-2.jpg"]
+    images: ["images/p3-1.jpg", "images/p3-2.jpg", "images/p3-3.jpg"]
   }
 };
 
@@ -93,5 +93,6 @@ function sendForm() {
   tg.sendData(JSON.stringify(data));
   tg.close();
 }
+
 
 
