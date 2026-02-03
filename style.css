@@ -1,5 +1,5 @@
 body {
-  font-size: 16px;
+  font-size: 20px;
   -webkit-text-size-adjust: 100%;
 }
 * {
@@ -124,3 +124,4 @@ button.back {
 .service.active {
   display: block;
 }
+
