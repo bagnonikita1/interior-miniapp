@@ -12,7 +12,6 @@ body {
 .screen {
   display: none;
   padding: 20px;
-  animation: fade .25s ease;
 }
 
 .screen.active {
@@ -25,7 +24,6 @@ button {
   margin-top: 12px;
   border-radius: 10px;
   border: none;
-  font-size: 16px;
 }
 
 button.primary {
@@ -48,6 +46,7 @@ button.back {
   background: #111;
   border-radius: 12px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .project img {
@@ -59,13 +58,11 @@ button.back {
 /* ФУЛЛСКРИН */
 .fullscreen {
   padding: 0;
-  background: #000;
 }
 
 #swipe-area {
   width: 100vw;
   height: 100vh;
-  touch-action: pan-y;
 }
 
 .fullscreen-img {
@@ -93,16 +90,27 @@ button.back {
   padding: 0 20px;
 }
 
-.slider-controls button {
-  width: auto;
-  font-size: 28px;
-  background: rgba(0,0,0,.5);
-  color: #fff;
-  border-radius: 50%;
-  padding: 10px 16px;
+/* УСЛУГИ */
+.tabs {
+  display: flex;
+  gap: 10px;
 }
 
-@keyframes fade {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+.tab {
+  flex: 1;
+  background: #111;
+  color: #aaa;
+}
+
+.tab.active {
+  background: #fff;
+  color: #000;
+}
+
+.service {
+  display: none;
+}
+
+.service.active {
+  display: block;
 }
