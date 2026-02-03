@@ -11,9 +11,9 @@ const projects = {
     images: ["images/p1-1.jpg", "images/p1-2.jpg"]
   },
   2: {
-    title: "Квартира для студентки ЮУрГУ",
+    title: "Квартира L-town",
     desc: "Проект реализован ✅",
-    images: ["images/p2-1.jpg", "images/p2-2.jpg"]
+    images: ["C:/Users/user/Desktop/interior-miniapp/images/p2-1.jpg", "images/p2-2.jpg"]
   },
   3: {
     title: "Коммерческое пространство для кофейни",
@@ -93,3 +93,4 @@ function sendForm() {
   tg.sendData(JSON.stringify(data));
   tg.close();
 }
+
