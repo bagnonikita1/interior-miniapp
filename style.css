@@ -28,6 +28,7 @@ button {
   margin-top: 12px;
   border-radius: 10px;
   border: none;
+  font-size: 16px;
 }
 
 button.primary {
@@ -45,6 +46,7 @@ button.back {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+  font-size: 20px;
 }
 
 .project {
@@ -104,6 +106,7 @@ button.back {
 .tabs {
   display: flex;
   gap: 10px;
+  font-size: 20px;
 }
 
 .tab {
@@ -124,4 +127,5 @@ button.back {
 .service.active {
   display: block;
 }
+
 
