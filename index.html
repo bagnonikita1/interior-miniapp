@@ -11,7 +11,6 @@
 
 <div id="app">
 
-  <!-- ГЛАВНЫЙ -->
   <section id="home" class="screen active">
     <h1>Дизайн интерьеров</h1>
     <p>Квартиры · Дома · Коммерческие пространства</p>
@@ -21,25 +20,24 @@
     <button class="primary" onclick="openForm()">Оставить заявку</button>
   </section>
 
-  <!-- ПОРТФОЛИО -->
   <section id="portfolio" class="screen">
     <h2>Портфолио</h2>
 
     <div class="projects">
       <div class="project" onclick="openProject(1)">
-        <img src="images/p1-1.jpg">
+        <img src="./images/p1-1.jpg">
         <h3>Квартира для мужчины</h3>
         <p>Идёт реализация</p>
       </div>
 
       <div class="project" onclick="openProject(2)">
-        <img src="images/p2-1.jpg">
+        <img src="./images/p2-1.jpg">
         <h3>Квартира L-town</h3>
         <p>Реализован ✅</p>
       </div>
 
       <div class="project" onclick="openProject(3)">
-        <img src="images/p3-1.jpg">
+        <img src="./images/p3-1.jpg">
         <h3>Коммерческое пространство</h3>
         <p>Идёт реализация</p>
       </div>
@@ -48,24 +46,23 @@
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
-  <!-- ЭКРАН ПРОЕКТА -->
-  <section id="project" class="screen">
-    <h2 id="project-title"></h2>
-    <p id="project-desc"></p>
+  <!-- ФУЛЛСКРИН СВАЙП -->
+  <section id="project" class="screen fullscreen">
+    <div class="top-bar">
+      <span id="project-title"></span>
+      <button onclick="openPortfolio()">✕</button>
+    </div>
 
-    <div class="slider">
-      <img id="slider-img" src="">
+    <div id="swipe-area">
+      <img id="slider-img" class="fullscreen-img">
     </div>
 
     <div class="slider-controls">
-      <button onclick="prevImage()">←</button>
-      <button onclick="nextImage()">→</button>
+      <button onclick="prevImage()">‹</button>
+      <button onclick="nextImage()">›</button>
     </div>
-
-    <button class="back" onclick="openPortfolio()">Назад к портфолио</button>
   </section>
 
-  <!-- УСЛУГИ -->
   <section id="services" class="screen">
     <h2>Услуги и цены</h2>
 
@@ -99,7 +96,6 @@
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
-  <!-- ФОРМА -->
   <section id="form" class="screen">
     <h2>Оставить заявку</h2>
 
