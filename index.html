@@ -11,15 +11,17 @@
 
 <div id="app">
 
+  <!-- ГЛАВНАЯ -->
   <section id="home" class="screen active">
     <h1>Дизайн интерьеров</h1>
-    <p>Квартиры · Дома · Коммерческие пространства</p>
+    <p>Квартиры · Дома · Коммерция</p>
 
     <button onclick="openPortfolio()">Портфолио</button>
     <button onclick="openServices()">Услуги и цены</button>
     <button class="primary" onclick="openForm()">Оставить заявку</button>
   </section>
 
+  <!-- ПОРТФОЛИО -->
   <section id="portfolio" class="screen">
     <h2>Портфолио</h2>
 
@@ -46,7 +48,7 @@
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
-  <!-- ФУЛЛСКРИН СВАЙП -->
+  <!-- ПРОЕКТ -->
   <section id="project" class="screen fullscreen">
     <div class="top-bar">
       <span id="project-title"></span>
@@ -63,12 +65,13 @@
     </div>
   </section>
 
+  <!-- УСЛУГИ -->
   <section id="services" class="screen">
     <h2>Услуги и цены</h2>
 
     <div class="tabs">
-      <button class="tab active" onclick="showService(2100)">2100 ₽ / м²</button>
-      <button class="tab" onclick="showService(2500)">2500 ₽ / м²</button>
+      <button id="tab-2100" class="tab active" onclick="showService(2100)">2100 ₽ / м²</button>
+      <button id="tab-2500" class="tab" onclick="showService(2500)">2500 ₽ / м²</button>
     </div>
 
     <div id="service-2100" class="service active">
@@ -96,6 +99,7 @@
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
+  <!-- ФОРМА -->
   <section id="form" class="screen">
     <h2>Оставить заявку</h2>
 
@@ -112,9 +116,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
