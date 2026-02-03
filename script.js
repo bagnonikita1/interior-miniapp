@@ -12,18 +12,10 @@ const projects = {
   2: {
     title: "Квартира L-town",
     images: [
-      "./images/p2-1.jpg",
-      "./images/p2-2.jpg",
-      "./images/p2-3.jpg",
-      "./images/p2-4.jpg",
-      "./images/p2-5.jpg",
-      "./images/p2-6.jpg",
-      "./images/p2-7.jpg",
-      "./images/p2-8.jpg",
-      "./images/p2-9.jpg",
-      "./images/p2-10.jpg",
-      "./images/p2-11.jpg",
-      "./images/p2-12.jpg",
+      "./images/p2-1.jpg","./images/p2-2.jpg","./images/p2-3.jpg",
+      "./images/p2-4.jpg","./images/p2-5.jpg","./images/p2-6.jpg",
+      "./images/p2-7.jpg","./images/p2-8.jpg","./images/p2-9.jpg",
+      "./images/p2-10.jpg","./images/p2-11.jpg","./images/p2-12.jpg",
       "./images/p2-13.jpg"
     ]
   },
@@ -90,11 +82,10 @@ function showService(price) {
 }
 
 function sendForm() {
-  const data = {
+  tg.sendData(JSON.stringify({
     phone: phone.value,
     area: area.value,
     comment: comment.value
-  };
-  tg.sendData(JSON.stringify(data));
+  }));
   tg.close();
 }
