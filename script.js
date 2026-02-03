@@ -44,17 +44,18 @@ function openForm() { showScreen('form'); }
 function goHome() { showScreen('home'); }
 
 function openProject(id) {
-  const project = projects[id];
-  currentImages = project.images;
+  const p = projects[id];
+  currentImages = p.images;
   currentIndex = 0;
-
-  document.getElementById('project-title').innerText = project.title;
-  document.getElementById('slider-img').src = currentImages[0];
-
+  document.getElementById('project-title').innerText = p.title;
+  updateImage();
   showScreen('project');
 }
 
-// КНОПКИ
+function updateImage() {
+  document.getElementById('slider-img').src = currentImages[currentIndex];
+}
+
 function nextImage() {
   currentIndex = (currentIndex + 1) % currentImages.length;
   updateImage();
@@ -65,13 +66,8 @@ function prevImage() {
   updateImage();
 }
 
-function updateImage() {
-  document.getElementById('slider-img').src = currentImages[currentIndex];
-}
-
-// 👉 СВАЙП
+/* СВАЙП */
 let startX = 0;
-
 const swipeArea = document.getElementById('swipe-area');
 
 swipeArea.addEventListener('touchstart', e => {
@@ -79,20 +75,26 @@ swipeArea.addEventListener('touchstart', e => {
 });
 
 swipeArea.addEventListener('touchend', e => {
-  const endX = e.changedTouches[0].clientX;
-  const diff = startX - endX;
-
+  const diff = startX - e.changedTouches[0].clientX;
   if (diff > 50) nextImage();
   if (diff < -50) prevImage();
 });
 
+/* УСЛУГИ */
+function showService(price) {
+  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+  document.getElementById(`service-${price}`).classList.add('active');
+  document.getElementById(`tab-${price}`).classList.add('active');
+}
+
 function sendForm() {
   const data = {
-    phone: document.getElementById('phone').value,
-    area: document.getElementById('area').value,
-    comment: document.getElementById('comment').value
+    phone: phone.value,
+    area: area.value,
+    comment: comment.value
   };
-
   tg.sendData(JSON.stringify(data));
   tg.close();
 }
