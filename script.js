@@ -1,65 +1,95 @@
-function showSection(id) {
-  document.querySelectorAll('.section')
-    .forEach(s => s.classList.remove('active'));
+const tg = window.Telegram.WebApp;
+tg.expand();
+
+let currentImages = [];
+let currentIndex = 0;
+
+const projects = {
+  1: {
+    title: "Квартира для мужчины средних лет",
+    desc: "Сейчас идёт реализация",
+    images: ["images/p1-1.jpg", "images/p1-2.jpg", "images/p1-3.jpg"]
+  },
+  2: {
+    title: "Квартира L-town",
+    desc: "Проект реализован ✅",
+    images: ["images/p2-1.jpg", "images/p2-2.jpg", "images/p2-3.jpg", "images/p2-4.jpg"]
+  },
+  3: {
+    title: "Коммерческое пространство для кофейни",
+    desc: "Сейчас идёт реализация",
+    images: ["images/p3-1.jpg", "images/p3-2.jpg", "images/p3-3.jpg"]
+  }
+};
+
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
-/* ===== VIEWER ===== */
-const viewer = document.getElementById('viewer');
-const viewerImage = document.getElementById('viewerImage');
-const projectTitle = document.getElementById('project-title');
-const imageCounter = document.getElementById('imageCounter');
+function openPortfolio() {
+  showScreen('portfolio');
+}
 
-let images = [];
-let currentIndex = 0;
+function openServices() {
+  showScreen('services');
+}
 
-const project1Images = [
-  'images/p1-1.jpg',
-  'images/p1-2.jpg',
-  'images/p1-3.jpg'
-];
+function openForm() {
+  showScreen('form');
+}
 
-const project2Images = [
-  'images/p2-1.jpg','images/p2-2.jpg','images/p2-3.jpg',
-  'images/p2-4.jpg','images/p2-5.jpg','images/p2-6.jpg',
-  'images/p2-7.jpg','images/p2-8.jpg','images/p2-9.jpg',
-  'images/p2-10.jpg','images/p2-11.jpg','images/p2-12.jpg',
-  'images/p2-13.jpg'
-];
+function goHome() {
+  showScreen('home');
+}
 
-const project3Images = [
-  'images/p3-1.jpg',
-  'images/p3-2.jpg',
-  'images/p3-3.jpg'
-];
-
-function openProject(title, imgs) {
-  images = imgs;
+function openProject(id) {
+  const project = projects[id];
+  currentImages = project.images;
   currentIndex = 0;
-  projectTitle.innerText = title;
-  viewer.style.display = 'block';
-  updateViewer();
-}
 
-function closeViewer() {
-  viewer.style.display = 'none';
-}
+  document.getElementById('project-title').innerText = project.title;
+  document.getElementById('project-desc').innerText = project.desc;
+  document.getElementById('slider-img').src = currentImages[0];
 
-function updateViewer() {
-  viewerImage.src = images[currentIndex];
-  imageCounter.innerText = `${currentIndex + 1} / ${images.length}`;
-}
-
-function prevImage() {
-  if (currentIndex > 0) {
-    currentIndex--;
-    updateViewer();
-  }
+  showScreen('project');
 }
 
 function nextImage() {
-  if (currentIndex < images.length - 1) {
-    currentIndex++;
-    updateViewer();
+  currentIndex = (currentIndex + 1) % currentImages.length;
+  document.getElementById('slider-img').src = currentImages[currentIndex];
+}
+
+function prevImage() {
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+  document.getElementById('slider-img').src = currentImages[currentIndex];
+}
+
+function showService(price) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+
+  if (price === 2100) {
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('service-2100').classList.add('active');
+  } else {
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.getElementById('service-2500').classList.add('active');
   }
+}
+
+function sendForm() {
+  const data = {
+    phone: document.getElementById('phone').value,
+    area: document.getElementById('area').value,
+    comment: document.getElementById('comment').value
+  };
+
+  if (!data.phone || !data.area) {
+    alert("Заполните телефон и площадь");
+    return;
+  }
+
+  tg.sendData(JSON.stringify(data));
+  tg.close();
 }
