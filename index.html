@@ -14,7 +14,7 @@
   <!-- ГЛАВНЫЙ -->
   <section id="home" class="screen active">
     <h1>Дизайн интерьеров</h1>
-    <p>Квартиры • Дома • Коммерческие пространства</p>
+    <p>Квартиры · Дома · Коммерческие пространства</p>
 
     <button onclick="openPortfolio()">Портфолио</button>
     <button onclick="openServices()">Услуги и цены</button>
@@ -50,17 +50,15 @@
 
   <!-- ЭКРАН ПРОЕКТА -->
   <section id="project" class="screen">
+
+    <div class="project-slider">
+      <button class="arrow left" onclick="prevImage()">‹</button>
+      <img id="slider-img" src="">
+      <button class="arrow right" onclick="nextImage()">›</button>
+    </div>
+
     <h2 id="project-title"></h2>
     <p id="project-desc"></p>
-
-    <div class="slider">
-      <img id="slider-img" src="">
-    </div>
-
-    <div class="slider-controls">
-      <button onclick="prevImage()">←</button>
-      <button onclick="nextImage()">→</button>
-    </div>
 
     <button class="back" onclick="openPortfolio()">Назад к портфолио</button>
   </section>
