@@ -1,91 +1,73 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+const viewer = document.getElementById('viewer');
+const viewerImage = document.getElementById('viewerImage');
+const projectTitle = document.getElementById('project-title');
+const imageCounter = document.getElementById('imageCounter');
 
-let currentImages = [];
+let images = [];
 let currentIndex = 0;
 
-const projects = {
-  1: {
-    title: "Квартира для мужчины",
-    images: ["./images/p1-1.jpg", "./images/p1-2.jpg"]
-  },
-  2: {
-    title: "Квартира L-town",
-    images: [
-      "./images/p2-1.jpg","./images/p2-2.jpg","./images/p2-3.jpg",
-      "./images/p2-4.jpg","./images/p2-5.jpg","./images/p2-6.jpg",
-      "./images/p2-7.jpg","./images/p2-8.jpg","./images/p2-9.jpg",
-      "./images/p2-10.jpg","./images/p2-11.jpg","./images/p2-12.jpg",
-      "./images/p2-13.jpg"
-    ]
-  },
-  3: {
-    title: "Коммерческое пространство",
-    images: ["./images/p3-1.jpg", "./images/p3-2.jpg"]
-  }
-};
+/* ===== МАССИВЫ ФОТО ===== */
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-}
+// Проект 1 — квартира для мужчины
+const project1Images = [
+  'images/p1-1.jpg',
+  'images/p1-2.jpg',
+  'images/p1-3.jpg'
+];
 
-function openPortfolio() { showScreen('portfolio'); }
-function openServices() { showScreen('services'); }
-function openForm() { showScreen('form'); }
-function goHome() { showScreen('home'); }
+// Проект 2 — Квартира L-town (13 фото)
+const project2Images = [
+  'images/p2-1.jpg',
+  'images/p2-2.jpg',
+  'images/p2-3.jpg',
+  'images/p2-4.jpg',
+  'images/p2-5.jpg',
+  'images/p2-6.jpg',
+  'images/p2-7.jpg',
+  'images/p2-8.jpg',
+  'images/p2-9.jpg',
+  'images/p2-10.jpg',
+  'images/p2-11.jpg',
+  'images/p2-12.jpg',
+  'images/p2-13.jpg'
+];
 
-function openProject(id) {
-  const p = projects[id];
-  currentImages = p.images;
+// Проект 3 — коммерческое пространство
+const project3Images = [
+  'images/p3-1.jpg',
+  'images/p3-2.jpg',
+  'images/p3-3.jpg'
+];
+
+/* ===== ЛОГИКА VIEWER ===== */
+
+function openProject(title, imgs) {
+  images = imgs;
   currentIndex = 0;
-  document.getElementById('project-title').innerText = p.title;
-  updateImage();
-  showScreen('project');
+  projectTitle.innerText = title;
+  viewer.style.display = 'flex';
+  updateViewer();
 }
 
-function updateImage() {
-  document.getElementById('slider-img').src = currentImages[currentIndex];
+function closeViewer() {
+  viewer.style.display = 'none';
 }
 
-function nextImage() {
-  currentIndex = (currentIndex + 1) % currentImages.length;
-  updateImage();
+function updateViewer() {
+  viewerImage.src = images[currentIndex];
+  imageCounter.innerText = ${currentIndex + 1} / ${images.length};
 }
 
 function prevImage() {
-  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-  updateImage();
+  if (currentIndex > 0) {
+    currentIndex--;
+    updateViewer();
+  }
 }
 
-/* СВАЙП */
-let startX = 0;
-const swipeArea = document.getElementById('swipe-area');
-
-swipeArea.addEventListener('touchstart', e => {
-  startX = e.touches[0].clientX;
-});
-
-swipeArea.addEventListener('touchend', e => {
-  const diff = startX - e.changedTouches[0].clientX;
-  if (diff > 50) nextImage();
-  if (diff < -50) prevImage();
-});
-
-/* УСЛУГИ */
-function showService(price) {
-  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-
-  document.getElementById(`service-${price}`).classList.add('active');
-  document.getElementById(`tab-${price}`).classList.add('active');
-}
-
-function sendForm() {
-  tg.sendData(JSON.stringify({
-    phone: phone.value,
-    area: area.value,
-    comment: comment.value
-  }));
-  tg.close();
+function nextImage() {
+  if (currentIndex < images.length - 1) {
+    currentIndex++;
+    updateViewer();
+  }
 }
