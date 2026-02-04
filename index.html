@@ -76,4 +76,22 @@
   <input type="tel" placeholder="+7 (___) ___-__-__">
   <input type="text" placeholder="Ваше имя">
 
-  <but
+  <button class="submit-btn">Оставить заявку</button>
+</section>
+
+<!-- VIEWER -->
+<div class="viewer" id="viewer">
+  <div class="top-bar">
+    <div id="project-title"></div>
+    <button onclick="closeViewer()">×</button>
+  </div>
+
+  <img id="viewerImage">
+  <div class="nav-arrow left" onclick="prevImage()">‹</div>
+  <div class="nav-arrow right" onclick="nextImage()">›</div>
+  <div class="image-counter" id="imageCounter"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
