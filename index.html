@@ -2,116 +2,73 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Дизайн интерьеров</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interior Mini App</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
 
-<div id="app">
+<!-- ПОРТФОЛИО -->
+<section class="portfolio">
+  <h2 class="section-title">Портфолио</h2>
 
-  <!-- ГЛАВНАЯ -->
-  <section id="home" class="screen active">
-    <h1>Дизайн интерьеров</h1>
-    <p>Квартиры · Дома · Коммерция</p>
+  <div class="project" onclick="openProject(
+    'Квартира для мужчины средних лет',
+    project1Images
+  )">
+    Квартира для мужчины средних лет
+  </div>
 
-    <button onclick="openPortfolio()">Портфолио</button>
-    <button onclick="openServices()">Услуги и цены</button>
-    <button class="primary" onclick="openForm()">Оставить заявку</button>
-  </section>
+  <div class="project" onclick="openProject(
+    'Квартира L-town',
+    project2Images
+  )">
+    Квартира L-town
+  </div>
 
-  <!-- ПОРТФОЛИО -->
-  <section id="portfolio" class="screen">
-    <h2>Портфолио</h2>
+  <div class="project" onclick="openProject(
+    'Коммерческое пространство для кофейни',
+    project3Images
+  )">
+    Коммерческое пространство для кофейни
+  </div>
+</section>
 
-    <div class="projects">
-      <div class="project" onclick="openProject(1)">
-        <img src="./images/p1-1.jpg">
-        <h3>Квартира для мужчины</h3>
-        <p>Идёт реализация</p>
-      </div>
+<!-- VIEWER -->
+<div class="viewer" id="viewer">
+  <div class="top-bar">
+    <div id="project-title"></div>
+    <button onclick="closeViewer()">×</button>
+  </div>
 
-      <div class="project" onclick="openProject(2)">
-        <img src="./images/p2-1.jpg">
-        <h3>Квартира L-town</h3>
-        <p>Реализован ✅</p>
-      </div>
+  <img id="viewerImage" src="" alt="project image">
 
-      <div class="project" onclick="openProject(3)">
-        <img src="./images/p3-1.jpg">
-        <h3>Коммерческое пространство</h3>
-        <p>Идёт реализация</p>
-      </div>
-    </div>
+  <div class="nav-arrow left" onclick="prevImage()">‹</div>
+  <div class="nav-arrow right" onclick="nextImage()">›</div>
 
-    <button class="back" onclick="goHome()">Назад</button>
-  </section>
-
-  <!-- ПРОЕКТ -->
-  <section id="project" class="screen fullscreen">
-    <div class="top-bar">
-      <span id="project-title"></span>
-      <button onclick="openPortfolio()">✕</button>
-    </div>
-
-    <div id="swipe-area">
-      <img id="slider-img" class="fullscreen-img">
-    </div>
-
-    <div class="slider-controls">
-      <button onclick="prevImage()">‹</button>
-      <button onclick="nextImage()">›</button>
-    </div>
-  </section>
-
-  <!-- УСЛУГИ -->
-  <section id="services" class="screen">
-    <h2>Услуги и цены</h2>
-
-    <div class="tabs">
-      <button id="tab-2100" class="tab active" onclick="showService(2100)">2100 ₽ / м²</button>
-      <button id="tab-2500" class="tab" onclick="showService(2500)">2500 ₽ / м²</button>
-    </div>
-
-    <div id="service-2100" class="service active">
-      <h3>Минимальный набор</h3>
-      <ul>
-        <li>Планировка</li>
-        <li>Концепция</li>
-        <li>Подбор материалов</li>
-        <li>Базовые чертежи</li>
-      </ul>
-    </div>
-
-    <div id="service-2500" class="service">
-      <h3>Стандартный набор</h3>
-      <ul>
-        <li>Планировка</li>
-        <li>Концепция</li>
-        <li>3D-визуализация</li>
-        <li>Полный комплект чертежей</li>
-        <li>Подбор мебели</li>
-      </ul>
-    </div>
-
-    <button class="primary" onclick="openForm()">Оставить заявку</button>
-    <button class="back" onclick="goHome()">Назад</button>
-  </section>
-
-  <!-- ФОРМА -->
-  <section id="form" class="screen">
-    <h2>Оставить заявку</h2>
-
-    <input id="phone" placeholder="Телефон">
-    <input id="area" placeholder="Площадь, м²">
-    <textarea id="comment" placeholder="Комментарий"></textarea>
-
-    <button class="primary" onclick="sendForm()">Отправить</button>
-    <button class="back" onclick="goHome()">Назад</button>
-  </section>
-
+  <div class="image-counter" id="imageCounter">1 / 1</div>
 </div>
+
+<!-- ФОРМА ЗАЯВКИ -->
+<section class="form-section">
+  <h1 class="form-title">Каждый интерьер начинается с диалога.</h1>
+  <p class="form-subtitle">
+    Заполните короткую форму — и давайте начнем этот разговор.
+  </p>
+
+  <select>
+    <option>Новостройка</option>
+    <option>Вторичка</option>
+    <option>Коммерческое помещение</option>
+  </select>
+
+  <input type="text" placeholder="Город объекта">
+  <input type="number" placeholder="Площадь помещения">
+  <input type="tel" placeholder="+7 (___) ___-__-__">
+  <input type="text" placeholder="Ваше имя">
+
+  <button class="submit-btn">Оставить заявку</button>
+</section>
 
 <script src="script.js"></script>
 </body>
