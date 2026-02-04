@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
+<!-- МЕНЮ -->
 <nav class="menu">
   <button onclick="showSection('portfolio')">Портфолио</button>
   <button onclick="showSection('services')">Услуги и цены</button>
@@ -17,7 +17,7 @@
 
 <!-- ПОРТФОЛИО -->
 <section id="portfolio" class="section active">
-  <h2>Портфолио</h2>
+  <h2 class="section-title">Портфолио</h2>
 
   <div class="project" onclick="openProject(
     'Квартира для мужчины средних лет',
@@ -39,7 +39,7 @@
 <section id="services" class="section">
   <div class="price-card">
     <h3>2100 ₽ / м²</h3>
-    <p>Минимальный набор включает в себя:</p>
+    <p>Минимальный набор включает:</p>
     <ul>
       <li>Планировочное решение</li>
       <li>Концепция интерьера</li>
@@ -49,16 +49,16 @@
 
   <div class="price-card">
     <h3>2500 ₽ / м²</h3>
-    <p>Стандартный набор включает в себя:</p>
+    <p>Стандартный набор включает:</p>
     <ul>
-      <li>Все из минимального</li>
+      <li>Всё из минимального</li>
       <li>Рабочая документация</li>
       <li>Авторский надзор</li>
     </ul>
   </div>
 </section>
 
-<!-- ФОРМА ЗАЯВКИ (ИМЕННО ЗДЕСЬ ИЗМЕНЕНИЯ) -->
+<!-- ФОРМА (ИЗМЕНЯЕМ ТОЛЬКО ЕЁ) -->
 <section id="form" class="section">
   <h1 class="form-title">Каждый интерьер начинается с диалога.</h1>
   <p class="form-subtitle">
