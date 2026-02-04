@@ -11,7 +11,6 @@ body {
 
 .screen {
   display: none;
-  padding: 20px;
 }
 
 .screen.active {
@@ -19,9 +18,10 @@ body {
 }
 
 .screen.fullscreen {
-  padding: 0;
   background: #000;
 }
+
+/* ===== КНОПКИ ===== */
 
 button {
   width: 100%;
@@ -30,6 +30,7 @@ button {
   border-radius: 10px;
   border: none;
   font-size: 16px;
+  cursor: pointer;
 }
 
 button.primary {
@@ -48,14 +49,16 @@ button.close {
   left: 20px;
   width: auto;
   color: #fff;
+  z-index: 10;
 }
 
-/* ПОРТФОЛИО */
+/* ===== ПОРТФОЛИО ===== */
 
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 15px;
+  padding: 20px;
 }
 
 .project {
@@ -70,7 +73,7 @@ button.close {
   object-fit: cover;
 }
 
-/* СЛАЙДЕР */
+/* ===== СЛАЙДЕР ===== */
 
 .project-slider {
   position: relative;
@@ -78,13 +81,15 @@ button.close {
   height: 100vh;
 }
 
+/* ⚠️ ВАЖНО — картинка НЕ ловит клики */
 .project-slider img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  pointer-events: none;
 }
 
-/* СТРЕЛКИ */
+/* ===== СТРЕЛКИ ===== */
 
 .arrow {
   position: absolute;
@@ -100,6 +105,7 @@ button.close {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 .arrow.left {
@@ -110,7 +116,7 @@ button.close {
   right: 12px;
 }
 
-/* СЧЁТЧИК */
+/* ===== СЧЁТЧИК ===== */
 
 .counter {
   position: absolute;
