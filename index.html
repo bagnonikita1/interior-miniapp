@@ -49,7 +49,9 @@
   </section>
 
   <!-- ЭКРАН ПРОЕКТА -->
-  <section id="project" class="screen">
+  <section id="project" class="screen fullscreen">
+
+    <div class="counter" id="counter"></div>
 
     <div class="project-slider">
       <button class="arrow left" onclick="prevImage()">‹</button>
@@ -57,10 +59,7 @@
       <button class="arrow right" onclick="nextImage()">›</button>
     </div>
 
-    <h2 id="project-title"></h2>
-    <p id="project-desc"></p>
-
-    <button class="back" onclick="openPortfolio()">Назад к портфолио</button>
+    <button class="back close" onclick="openPortfolio()">Закрыть</button>
   </section>
 
   <!-- УСЛУГИ -->
