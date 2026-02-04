@@ -27,21 +27,10 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function openPortfolio() {
-  showScreen('portfolio');
-}
-
-function openServices() {
-  showScreen('services');
-}
-
-function openForm() {
-  showScreen('form');
-}
-
-function goHome() {
-  showScreen('home');
-}
+function openPortfolio() { showScreen('portfolio'); }
+function openServices() { showScreen('services'); }
+function openForm() { showScreen('form'); }
+function goHome() { showScreen('home'); }
 
 function openProject(id) {
   const project = projects[id];
