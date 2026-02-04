@@ -15,7 +15,6 @@ body {
   background: #000;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-text-size-adjust: 100%;
 }
 
 /* ===== МЕНЮ ===== */
@@ -33,7 +32,7 @@ body {
   font-size: var(--text-base);
 }
 
-/* ===== СЕКЦИИ ===== */
+/* ===== СЕКЦИИ (ВАЖНО) ===== */
 .section {
   display: none;
   padding: 20px;
@@ -43,12 +42,12 @@ body {
   display: block;
 }
 
+/* ===== ПОРТФОЛИО ===== */
 .section-title {
   font-size: var(--title-lg);
   margin-bottom: 16px;
 }
 
-/* ===== ПОРТФОЛИО ===== */
 .project {
   padding: 18px 0;
   border-bottom: 1px solid #333;
@@ -93,9 +92,8 @@ input, select {
   padding: 16px;
   background: #fff;
   color: #000;
-  border-radius: 14px;
+border-radius: 14px;
   font-size: var(--text-base);
-  font-weight: 500;
 }
 
 /* ===== VIEWER ===== */
@@ -104,8 +102,6 @@ input, select {
   inset: 0;
   background: #000;
   display: none;
-  align-items: center;
-  justify-content: center;
   z-index: 100;
 }
 
@@ -122,25 +118,20 @@ input, select {
   right: 12px;
   display: flex;
   gap: 12px;
-  z-index: 20;
 }
 
 #project-title {
   flex: 1;
   font-size: var(--text-base);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .top-bar button {
   width: 32px;
   height: 32px;
   border-radius: 50%;
+  border: none;
   background: rgba(0,0,0,0.6);
   color: #fff;
-  border: none;
-  font-size: 18px;
 }
 
 .nav-arrow {
@@ -165,8 +156,5 @@ input, select {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: rgba(0,0,0,0.5);
-  padding: 4px 8px;
-  border-radius: 12px;
   font-size: var(--text-small);
 }
