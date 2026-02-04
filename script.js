@@ -37,7 +37,7 @@ function openProject(title, imgs) {
   images = imgs;
   currentIndex = 0;
   projectTitle.innerText = title;
-  viewer.style.display = 'flex';
+  viewer.style.display = 'block';
   updateViewer();
 }
 
@@ -47,7 +47,7 @@ function closeViewer() {
 
 function updateViewer() {
   viewerImage.src = images[currentIndex];
-  imageCounter.innerText = ${currentIndex + 1} / ${images.length};
+  imageCounter.innerText = `${currentIndex + 1} / ${images.length}`;
 }
 
 function prevImage() {
