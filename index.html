@@ -8,49 +8,58 @@
 </head>
 <body>
 
+<!-- НАВИГАЦИЯ -->
+<nav class="menu">
+  <button onclick="showSection('portfolio')">Портфолио</button>
+  <button onclick="showSection('services')">Услуги и цены</button>
+  <button onclick="showSection('form')">Оставить заявку</button>
+</nav>
+
 <!-- ПОРТФОЛИО -->
-<section class="portfolio">
-  <h2 class="section-title">Портфолио</h2>
+<section id="portfolio" class="section active">
+  <h2>Портфолио</h2>
 
   <div class="project" onclick="openProject(
     'Квартира для мужчины средних лет',
     project1Images
-  )">
-    Квартира для мужчины средних лет
-  </div>
+  )">Квартира для мужчины средних лет</div>
 
   <div class="project" onclick="openProject(
     'Квартира L-town',
     project2Images
-  )">
-    Квартира L-town
-  </div>
+  )">Квартира L-town</div>
 
   <div class="project" onclick="openProject(
     'Коммерческое пространство для кофейни',
     project3Images
-  )">
-    Коммерческое пространство для кофейни
+  )">Коммерческое пространство для кофейни</div>
+</section>
+
+<!-- УСЛУГИ -->
+<section id="services" class="section">
+  <div class="price-card">
+    <h3>2100 ₽ / м²</h3>
+    <p>Минимальный набор включает в себя:</p>
+    <ul>
+      <li>Планировочное решение</li>
+      <li>Концепция интерьера</li>
+      <li>Подбор материалов</li>
+    </ul>
+  </div>
+
+  <div class="price-card">
+    <h3>2500 ₽ / м²</h3>
+    <p>Стандартный набор включает в себя:</p>
+    <ul>
+      <li>Все из минимального</li>
+      <li>Рабочая документация</li>
+      <li>Авторский надзор</li>
+    </ul>
   </div>
 </section>
 
-<!-- VIEWER -->
-<div class="viewer" id="viewer">
-  <div class="top-bar">
-    <div id="project-title"></div>
-    <button onclick="closeViewer()">×</button>
-  </div>
-
-  <img id="viewerImage" src="" alt="project image">
-
-  <div class="nav-arrow left" onclick="prevImage()">‹</div>
-  <div class="nav-arrow right" onclick="nextImage()">›</div>
-
-  <div class="image-counter" id="imageCounter">1 / 1</div>
-</div>
-
-<!-- ФОРМА ЗАЯВКИ -->
-<section class="form-section">
+<!-- ФОРМА ЗАЯВКИ (ИМЕННО ЗДЕСЬ ИЗМЕНЕНИЯ) -->
+<section id="form" class="section">
   <h1 class="form-title">Каждый интерьер начинается с диалога.</h1>
   <p class="form-subtitle">
     Заполните короткую форму — и давайте начнем этот разговор.
@@ -67,9 +76,4 @@
   <input type="tel" placeholder="+7 (___) ___-__-__">
   <input type="text" placeholder="Ваше имя">
 
-  <button class="submit-btn">Оставить заявку</button>
-</section>
-
-<script src="script.js"></script>
-</body>
-</html>
+  <but
