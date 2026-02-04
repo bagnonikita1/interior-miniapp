@@ -8,12 +8,15 @@
 </head>
 <body>
 
-<!-- МЕНЮ -->
-<nav class="menu">
-  <button onclick="showSection('portfolio')">Портфолио</button>
-  <button onclick="showSection('services')">Услуги и цены</button>
-  <button onclick="showSection('form')">Оставить заявку</button>
-</nav>
+<!-- ГЛАВНЫЙ -->
+  <section id="home" class="screen active">
+    <h1>Дизайн интерьеров</h1>
+    <p>Квартиры • Дома • Коммерческие пространства</p>
+
+    <button onclick="openPortfolio()">Портфолио</button>
+    <button onclick="openServices()">Услуги и цены</button>
+    <button class="primary" onclick="openForm()">Оставить заявку</button>
+  </section>
 
 <!-- ПОРТФОЛИО -->
 <section id="portfolio" class="section active">
@@ -99,3 +102,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
