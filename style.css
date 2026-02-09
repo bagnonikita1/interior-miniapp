@@ -38,7 +38,7 @@ button.back {
   color: #666;
 }
 
-/* ===== ПРОЕКТЫ ===== */
+/* ===== ПОРТФОЛИО ===== */
 
 .projects {
   display: grid;
@@ -58,34 +58,40 @@ button.back {
   object-fit: cover;
 }
 
-/* ===== СЛАЙДЕР ===== */
+/* ============================= */
+/* ===== СЛАЙДЕР (FIXED) ======= */
+/* ============================= */
 
 .project-slider {
   position: relative;
+  width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .project-slider img {
-  width: 100%;
-  max-width: 420px;
-  height: 340px;              /* ⬅️ КРУПНЕЕ */
-  object-fit: contain;
+  width: 100vw !important;     /* ⬅️ НА ВСЮ ШИРИНУ ЭКРАНА */
+  height: 55vh !important;     /* ⬅️ КРУПНО */
+  max-width: none !important;
+  object-fit: contain !important;
   background: #f2f2f2;
-  border-radius: 16px;
+  border-radius: 18px;
+  margin: 0 auto;
+  display: block;
 }
 
 /* СЧЁТЧИК */
 #photo-counter {
   position: absolute;
-  bottom: 12px;
-  right: calc(50% - 200px);   /* ⬅️ ПРИВЯЗКА К ФОТО */
-  background: rgba(0,0,0,.65);
+  bottom: 14px;
+  right: 18px;
+  background: rgba(0,0,0,.7);
   color: #fff;
-  padding: 6px 12px;
-  border-radius: 14px;
+  padding: 6px 14px;
+  border-radius: 16px;
   font-size: 13px;
+  z-index: 2;
 }
 
 /* СТРЕЛКИ */
@@ -99,16 +105,18 @@ button.back {
   background: #fff;
   font-size: 26px;
   border: none;
+  z-index: 2;
 }
 
-.arrow.left { left: 0; }
-.arrow.right { right: 0; }
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
 
 /* ===== ЗАГОЛОВОК ПРОЕКТА ===== */
 
 #project-title {
-  margin-top: 6px;   /* ⬅️ ПЛОТНО К ФОТО */
+  margin-top: 8px;
   margin-bottom: 4px;
+  font-size: 20px;
 }
 
 #project-desc {
@@ -116,7 +124,7 @@ button.back {
   color: #333;
 }
 
-/* ===== ТАБЫ ===== */
+/* ===== УСЛУГИ ===== */
 
 .tabs {
   display: flex;
