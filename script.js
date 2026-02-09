@@ -13,7 +13,7 @@ const projects = {
   2: {
     title: "Квартира L-town",
     desc: "Проект реализован ✅",
-    images: ["images/p2-1.jpg", "images/p2-2.jpg", "images/p2-3.jpg", "images/p2-4.jpg"]
+    images: Array.from({ length: 13 }, (_, i) => `images/p2-${i + 1}.jpg`)
   },
   3: {
     title: "Коммерческое пространство для кофейни",
@@ -27,20 +27,14 @@ function showScreen(id) {
   document.getElementById(id).classList.add('active');
 }
 
-function openPortfolio() {
-  showScreen('portfolio');
-}
+function openPortfolio() { showScreen('portfolio'); }
+function openServices() { showScreen('services'); }
+function openForm() { showScreen('form'); }
+function goHome() { showScreen('home'); }
 
-function openServices() {
-  showScreen('services');
-}
-
-function openForm() {
-  showScreen('form');
-}
-
-function goHome() {
-  showScreen('home');
+function updateCounter() {
+  document.getElementById('photo-counter').innerText =
+    `${currentIndex + 1} / ${currentImages.length}`;
 }
 
 function openProject(id) {
@@ -52,17 +46,20 @@ function openProject(id) {
   document.getElementById('project-desc').innerText = project.desc;
   document.getElementById('slider-img').src = currentImages[0];
 
+  updateCounter();
   showScreen('project');
 }
 
 function nextImage() {
   currentIndex = (currentIndex + 1) % currentImages.length;
   document.getElementById('slider-img').src = currentImages[currentIndex];
+  updateCounter();
 }
 
 function prevImage() {
   currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
   document.getElementById('slider-img').src = currentImages[currentIndex];
+  updateCounter();
 }
 
 function showService(price) {
@@ -93,4 +90,3 @@ function sendForm() {
   tg.sendData(JSON.stringify(data));
   tg.close();
 }
-
