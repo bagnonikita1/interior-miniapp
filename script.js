@@ -1,5 +1,9 @@
-const tg = window.Telegram.WebApp;
-tg.expand();
+let tg = null;
+
+if (window.Telegram && window.Telegram.WebApp) {
+  tg = window.Telegram.WebApp;
+  tg.expand();
+}
 
 let currentImages = [];
 let currentIndex = 0;
@@ -33,8 +37,10 @@ function openForm() { showScreen('form'); }
 function goHome() { showScreen('home'); }
 
 function updateCounter() {
-  document.getElementById('photo-counter').innerText =
-    `${currentIndex + 1} / ${currentImages.length}`;
+  const counter = document.getElementById('photo-counter');
+  if (counter) {
+    counter.innerText = ${currentIndex + 1} / ${currentImages.length};
+  }
 }
 
 function openProject(id) {
@@ -87,6 +93,10 @@ function sendForm() {
     return;
   }
 
-  tg.sendData(JSON.stringify(data));
-  tg.close();
+  if (tg) {
+    tg.sendData(JSON.stringify(data));
+    tg.close();
+  } else {
+    alert("Форма отправлена (режим браузера)");
+  }
 }
