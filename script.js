@@ -11,41 +11,23 @@ const projects = {
   1: {
     title: "Квартира для мужчины средних лет",
     desc: "Сейчас идёт реализация",
-    images: [
-      "images/p1-1.jpg",
-      "images/p1-2.jpg",
-      "images/p1-3.jpg"
-    ]
+    images: ["images/p1-1.jpg", "images/p1-2.jpg", "images/p1-3.jpg"]
   },
-
   2: {
     title: "Квартира L-town",
     desc: "Проект реализован ✅",
     images: [
-      "images/p2-1.jpg",
-      "images/p2-2.jpg",
-      "images/p2-3.jpg",
-      "images/p2-4.jpg",
-      "images/p2-5.jpg",
-      "images/p2-6.jpg",
-      "images/p2-7.jpg",
-      "images/p2-8.jpg",
-      "images/p2-9.jpg",
-      "images/p2-10.jpg",
-      "images/p2-11.jpg",
-      "images/p2-12.jpg",
+      "images/p2-1.jpg","images/p2-2.jpg","images/p2-3.jpg",
+      "images/p2-4.jpg","images/p2-5.jpg","images/p2-6.jpg",
+      "images/p2-7.jpg","images/p2-8.jpg","images/p2-9.jpg",
+      "images/p2-10.jpg","images/p2-11.jpg","images/p2-12.jpg",
       "images/p2-13.jpg"
     ]
   },
-
   3: {
     title: "Коммерческое пространство для кофейни",
     desc: "Сейчас идёт реализация",
-    images: [
-      "images/p3-1.jpg",
-      "images/p3-2.jpg",
-      "images/p3-3.jpg"
-    ]
+    images: ["images/p3-1.jpg", "images/p3-2.jpg", "images/p3-3.jpg"]
   }
 };
 
@@ -60,7 +42,7 @@ function openPortfolio() {
 
 function openServices() {
   showScreen('services');
-  showService(2100); // ← ВАЖНО: принудительно показываем услуги
+  showService(2100); // ОБЯЗАТЕЛЬНО
 }
 
 function openForm() {
@@ -72,37 +54,31 @@ function goHome() {
 }
 
 function updateCounter() {
-  const counter = document.getElementById('photo-counter');
-  if (counter) {
-    counter.innerText = (currentIndex + 1) + " / " + currentImages.length;
-  }
+  document.getElementById('photo-counter').innerText =
+    (currentIndex + 1) + " / " + currentImages.length;
 }
 
 function openProject(id) {
-  const project = projects[id];
-  currentImages = project.images;
+  const p = projects[id];
+  currentImages = p.images;
   currentIndex = 0;
 
-  document.getElementById('project-title').innerText = project.title;
-  document.getElementById('project-desc').innerText = project.desc;
   document.getElementById('slider-img').src = currentImages[0];
+  document.getElementById('project-title').innerText = p.title;
+  document.getElementById('project-desc').innerText = p.desc;
 
   updateCounter();
   showScreen('project');
 }
 
 function nextImage() {
-  currentIndex++;
-  if (currentIndex >= currentImages.length) currentIndex = 0;
-
+  currentIndex = (currentIndex + 1) % currentImages.length;
   document.getElementById('slider-img').src = currentImages[currentIndex];
   updateCounter();
 }
 
 function prevImage() {
-  currentIndex--;
-  if (currentIndex < 0) currentIndex = currentImages.length - 1;
-
+  currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
   document.getElementById('slider-img').src = currentImages[currentIndex];
   updateCounter();
 }
@@ -122,9 +98,9 @@ function showService(price) {
 
 function sendForm() {
   const data = {
-    phone: document.getElementById('phone').value,
-    area: document.getElementById('area').value,
-    comment: document.getElementById('comment').value
+    phone: phone.value,
+    area: area.value,
+    comment: comment.value
   };
 
   if (!data.phone || !data.area) {
