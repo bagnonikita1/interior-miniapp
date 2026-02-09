@@ -5,66 +5,47 @@
 
 body {
   margin: 0;
-  background: #fff;
-  color: #111;
 }
 
 .screen {
-  display: none;
+  position: absolute;
+  inset: 0;
+  padding: 20px;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: .2s;
 }
 
 .screen.active {
-  display: block;
+  opacity: 1;
+  pointer-events: auto;
 }
 
-.screen.fullscreen {
+.fullscreen {
+  padding: 0;
   background: #000;
 }
-
-/* ===== КНОПКИ ===== */
 
 button {
   width: 100%;
   padding: 14px;
   margin-top: 12px;
-  border-radius: 10px;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
 }
 
-button.primary {
+.primary {
   background: #000;
   color: #fff;
 }
 
-button.back {
+.back {
   background: transparent;
-  color: #666;
 }
-
-button.close {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: auto;
-  color: #fff;
-  z-index: 10;
-}
-
-/* ===== ПОРТФОЛИО ===== */
 
 .projects {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  padding: 20px;
-}
-
-.project {
-  background: #f5f5f5;
-  border-radius: 12px;
-  overflow: hidden;
+  gap: 12px;
 }
 
 .project img {
@@ -73,56 +54,44 @@ button.close {
   object-fit: cover;
 }
 
-/* ===== СЛАЙДЕР ===== */
-
 .project-slider {
-  position: relative;
   width: 100vw;
   height: 100vh;
+  position: relative;
 }
 
-/* ⚠️ ВАЖНО — картинка НЕ ловит клики */
 .project-slider img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  pointer-events: none;
 }
-
-/* ===== СТРЕЛКИ ===== */
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 46px;
-  height: 46px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: #fff;
-  color: #000;
-  font-size: 26px;
   border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
 }
 
-.arrow.left {
-  left: 12px;
-}
-
-.arrow.right {
-  right: 12px;
-}
-
-/* ===== СЧЁТЧИК ===== */
+.arrow.left { left: 12px; }
+.arrow.right { right: 12px; }
 
 .counter {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
   color: #fff;
-  font-size: 14px;
-  z-index: 10;
+}
+
+.close {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  color: #fff;
+  background: none;
+  border: none;
 }
