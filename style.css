@@ -1,100 +1,79 @@
-html, body {
-  height: 100%;
-  margin: 0;
+color: #666;
+  margin: 0 10px 10px;
 }
 
-body {
-  overflow: hidden;
-  font-family: Arial, sans-serif;
-}
-
-#app {
-  height: 100%;
-  position: relative;
-}
-
-.screen {
-  position: absolute;
-  inset: 0;
-  padding: 20px;
-  background: #fff;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .2s;
-}
-
-.screen.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.fullscreen {
-  padding: 0;
-  background: #000;
-}
-
-button {
-  width: 100%;
-  padding: 14px;
-  margin-top: 12px;
-}
-
-.primary {
-  background: #000;
-  color: #fff;
-}
-
-.projects {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.project img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
+/* ===== СЛАЙДЕР ===== */
 
 .project-slider {
-  width: 100%;
-  height: 100%;
   position: relative;
 }
 
 .project-slider img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 260px;
+  object-fit: contain;
+  background: #f2f2f2;
+  border-radius: 12px;
+}
+
+#photo-counter {
+  position: absolute;
+  bottom: 10px;
+  right: 14px;
+  background: rgba(0,0,0,.6);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
 .arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
   background: #fff;
+  color: #000;
+  font-size: 26px;
   border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
 }
 
-.arrow.left { left: 12px; }
-.arrow.right { right: 12px; }
-
-.counter {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  color: #fff;
-  z-index: 5;
+.arrow.left {
+  left: 12px;
 }
 
-.close {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+.arrow.right {
+  right: 12px;
+}
+
+/* ===== ТАБЫ ===== */
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.tab.active {
+  background: #000;
   color: #fff;
-  background: none;
-  border: none;
+}
+
+.service {
+  display: none;
+}
+
+.service.active {
+  display: block;
+}
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
