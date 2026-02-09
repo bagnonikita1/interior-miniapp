@@ -39,6 +39,18 @@ function openPortfolio() {
   showScreen('portfolio');
 }
 
+function openServices() {
+  showScreen('services');
+}
+
+function openForm() {
+  showScreen('form');
+}
+
+function goHome() {
+  showScreen('home');
+}
+
 function openProject(id) {
   currentImages = projects[id].images;
   currentIndex = 0;
@@ -62,9 +74,19 @@ function prevImage() {
   updateImage();
 }
 
-function openServices() { showScreen('services'); }
-function openForm() { showScreen('form'); }
-function goHome() { showScreen('home'); }
+/* 🔴 ВОТ ЭТОЙ ФУНКЦИИ НЕ ХВАТАЛО */
+function showService(price) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.service').forEach(s => s.classList.remove('active'));
+
+  if (price === 2100) {
+    document.querySelectorAll('.tab')[0].classList.add('active');
+    document.getElementById('service-2100').classList.add('active');
+  } else {
+    document.querySelectorAll('.tab')[1].classList.add('active');
+    document.getElementById('service-2500').classList.add('active');
+  }
+}
 
 function sendForm() {
   const data = {
