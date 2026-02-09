@@ -72,7 +72,7 @@ button.back {
 
 .project-slider img {
   width: 100vw !important;     /* ⬅️ НА ВСЮ ШИРИНУ ЭКРАНА */
-  height: 55vh !important;     /* ⬅️ КРУПНО */
+  height: 65vh !important;     /* ⬅️ КРУПНО */
   max-width: none !important;
   object-fit: contain !important;
   background: #f2f2f2;
@@ -149,3 +149,4 @@ button.back {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
