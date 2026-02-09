@@ -11,7 +11,6 @@
 
 <div id="app">
 
-  <!-- ГЛАВНЫЙ -->
   <section id="home" class="screen active">
     <h1>Дизайн интерьеров</h1>
     <p>Квартиры · Дома · Коммерческие пространства</p>
@@ -21,7 +20,6 @@
     <button class="primary" onclick="openForm()">Оставить заявку</button>
   </section>
 
-  <!-- ПОРТФОЛИО -->
   <section id="portfolio" class="screen">
     <h2>Портфолио</h2>
 
@@ -29,42 +27,36 @@
       <div class="project" onclick="openProject(1)">
         <img src="images/p1-1.jpg">
         <h3>Квартира для мужчины</h3>
-        <p>Идёт реализация</p>
       </div>
 
       <div class="project" onclick="openProject(2)">
         <img src="images/p2-1.jpg">
         <h3>Квартира L-town</h3>
-        <p>Реализован ✅</p>
       </div>
 
       <div class="project" onclick="openProject(3)">
         <img src="images/p3-1.jpg">
         <h3>Коммерческое пространство</h3>
-        <p>Идёт реализация</p>
       </div>
     </div>
 
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
-  <!-- ЭКРАН ПРОЕКТА -->
   <section id="project" class="screen fullscreen">
-
     <div class="counter" id="counter"></div>
 
     <div class="project-slider">
       <button class="arrow left" onclick="prevImage()">‹</button>
-      <img id="slider-img" src="">
+      <img id="slider-img">
       <button class="arrow right" onclick="nextImage()">›</button>
     </div>
 
-    <button class="back close" onclick="openPortfolio()">Закрыть</button>
+    <button class="close" onclick="openPortfolio()">Закрыть</button>
   </section>
 
-  <!-- УСЛУГИ -->
   <section id="services" class="screen">
-    <h2>Услуги и цены</h2>
+    <h2>Услуги</h2>
 
     <div class="tabs">
       <button class="tab active" onclick="showService(2100)">2100 ₽ / м²</button>
@@ -72,36 +64,21 @@
     </div>
 
     <div id="service-2100" class="service active">
-      <h3>Минимальный набор</h3>
-      <ul>
-        <li>Планировка</li>
-        <li>Концепция</li>
-        <li>Подбор материалов</li>
-        <li>Базовые чертежи</li>
-      </ul>
+      <p>Минимальный набор</p>
     </div>
 
     <div id="service-2500" class="service">
-      <h3>Стандартный набор</h3>
-      <ul>
-        <li>Планировка</li>
-        <li>Концепция</li>
-        <li>3D-визуализация</li>
-        <li>Полный комплект чертежей</li>
-        <li>Подбор мебели</li>
-      </ul>
+      <p>Стандартный набор</p>
     </div>
 
-    <button class="primary" onclick="openForm()">Оставить заявку</button>
     <button class="back" onclick="goHome()">Назад</button>
   </section>
 
-  <!-- ФОРМА -->
   <section id="form" class="screen">
-    <h2>Оставить заявку</h2>
+    <h2>Заявка</h2>
 
     <input id="phone" placeholder="Телефон">
-    <input id="area" placeholder="Площадь, м²">
+    <input id="area" placeholder="Площадь">
     <textarea id="comment" placeholder="Комментарий"></textarea>
 
     <button class="primary" onclick="sendForm()">Отправить</button>
