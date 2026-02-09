@@ -86,7 +86,7 @@ button.back {
   position: absolute;
   bottom: 14px;
   right: 18px;
-  background: rgba(0,0,0,.7);
+  background: rgba(255,255,255,.7);
   color: #fff;
   padding: 6px 14px;
   border-radius: 16px;
@@ -149,6 +149,7 @@ button.back {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
 
 
 
